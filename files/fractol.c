@@ -1,78 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_bonus.c                                    :+:      :+:    :+:   */
+/*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:51:12 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/11/29 16:24:44 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/11/30 22:37:41 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-/* void	put_circle(t_data *img, t_vars *vars, int color)
+void	print_sec(t_th_data *dt, void (*fractal)(t_vars *, t_cmplx, t_point))
 {
-	this function puts a circle supposing the image has the same size as the window
-	double i;
-
-	if (vars->r < 0)
-		vars->r = 0;
-	i = 0;
-	while(i < 2 * M_PI)
-	{
-		my_mlx_pixel_put(img, vars->x + vars->r * cos(i), vars->y + vars->r * sin(i), color);
-		i += 0.0001;
-	}
-} */
-
-/* void	put_gradient(t_data *img, int x, int y, int color)
-{
-	int i;
-	int width;
-	int j;
-
-	width = 200;
-	i = 0;
-	while(i < width)
-	{
-		j = 0;
-		while (j < width)
-		{
-			my_mlx_pixel_put(img, x - width / 2 + i, y - width / 2 + j, color);
-			j++;
-		}
-		i++;
-	}
-} */
-
-/* int	print_key(int keycode, t_vars *vars)
-{
-	printf("%d\n", keycode);
-	return (0);
-} */
-
-void	print_section(t_thread_data *data, void (*fractal)(t_vars *, t_cmplx, t_point))
-{
-	int i;
-	int j;
-	t_cmplx z;
-	t_point point;
+	int		i;
+	int		j;
+	t_cmplx	z;
+	t_point	point;
 
 	z.a = 0;
 	z.b = 0;
 	i = 0;
 	while (i < WIDTH)
 	{
-		j = data->start_y;
-		while (j < data->end_y)
+		j = dt->start_y;
+		while (j < dt->end_y)
 		{
-			z.a = from_int_to_real(i, data->vars->view.x_min, data->vars->view.x_max, WIDTH);
-			z.b = from_int_to_real(j, data->vars->view.y_min, data->vars->view.y_max, HEIGHT);
+			z.a = from_int_to_real(i, dt->vars->view.x_min,
+					dt->vars->view.x_max, WIDTH);
+			z.b = from_int_to_real(j, dt->vars->view.y_min,
+					dt->vars->view.y_max, HEIGHT);
 			point.x = i;
 			point.y = j++;
-			fractal(data->vars, z, point);
+			fractal(dt->vars, z, point);
 		}
 		i++;
 	}
@@ -80,23 +41,22 @@ void	print_section(t_thread_data *data, void (*fractal)(t_vars *, t_cmplx, t_poi
 
 void	*render_section(void *arg)
 {
-	t_thread_data 	*data = (t_thread_data *)arg;
+	t_th_data 	*data = (t_th_data *)arg;
+	
 	
 	if (!ft_strcmp(data->vars->fractal, "Mandelbrot"))
-		print_section(data, mandelbrot);
+		print_sec(data, mandelbrot);
 	else if (!ft_strcmp(data->vars->fractal, "Julia"))
-		print_section(data, julia);
+		print_sec(data, julia);
 	else if (!ft_strcmp(data->vars->fractal, "BurningShip"))
-		print_section(data, burning_ship);
-	else if (!ft_strcmp(data->vars->fractal, "JuliaCosh"))
-		print_section(data, julia_cosh);
+		print_sec(data, burning_ship);
 	return (NULL);
 }
 
 int	render_next_frame(t_vars *vars)
 {
 	pthread_t		threads[THREADS];
-	t_thread_data	data[THREADS];
+	t_th_data		data[THREADS];
 	int				section_height;
 	int				i;
 	int				*aug_iter;

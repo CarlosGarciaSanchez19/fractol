@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/11/30 21:45:32 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/11/30 22:30:24 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,11 @@ typedef struct	s_vars {
 	t_cmplx	c;
 }				t_vars;
 
-typedef struct s_thread_data {
+typedef struct s_th_data {
     t_vars *vars;
     int start_y;
     int end_y;
-} t_thread_data;
+} t_th_data;
 
 enum e_colors
 {
