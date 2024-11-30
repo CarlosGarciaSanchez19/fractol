@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/11/29 15:21:32 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/11/30 21:45:32 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@
 #endif
 
 #ifndef WIDTH
-# define WIDTH 1920
+# define WIDTH 1280
 #endif
 
 #ifndef HEIGHT
-# define HEIGHT 1080
+# define HEIGHT 720
 #endif
 
 #ifndef THREADS
