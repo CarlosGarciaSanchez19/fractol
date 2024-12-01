@@ -4,8 +4,6 @@
 
 **Fractal Explorer** is an interactive program designed to explore and visualize various fractals, such as the Mandelbrot set, Julia set, and Burning Ship fractal. It provides advanced controls for precision, color customization, and fractal navigation, making it an excellent tool for fractal enthusiasts and computational explorers.
 
----
-
 ## Features
 
 ### Navigation and Zoom
@@ -37,8 +35,6 @@
 ### Save Image
 - Press `G` to save the current fractal view as a **BMP image** in the program's folder.
 
----
-
 ## Execution Instructions
 
 1. **System Requirements**:  
@@ -58,8 +54,6 @@
    ./fractal_explorer mandelbrot 500
    ./fractal_explorer julia -0.8 0.156
    ./fractal_explorer burningship
-
----
 
 ## Notes:
 - For Julia fractals, the dynamic parameter adjustment works seamlessly with the mouse.
