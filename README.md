@@ -33,7 +33,7 @@ _All images and videos where created with fractol_
   - Press `+` to increase frequency.  
   - Press `-` to decrease frequency.  
 - **Change Colormap**:
-- Press `C` to switch between different color schemes.
+  - Press `C` to switch between different color schemes.
 
 ### Fractal Selection
 - Press `1` to view the Mandelbrot fractal.  
