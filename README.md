@@ -51,6 +51,7 @@ _All images and videos where created with fractol_
    - Performance improves with a processor having multiple cores (as this program uses threads 🧵).  
 
 2. **Run the Program**:
+   - Execute `make` in the ''/files'' folder to compile the program.
    - Use the terminal to execute the program with the following arguments:  
      - **First Argument**: The fractal type (`Mandelbrot`, `Julia`, or `BurningShip`).
      - _Note: The program is camel case sensitive._
@@ -61,9 +62,9 @@ _All images and videos where created with fractol_
 
    **Example Commands**:  
    ```bash
-   ./fractal_explorer Mandelbrot 500
-   ./fractal_explorer Julia -0.8 0.156
-   ./fractal_explorer BurningShip
+   ./fractol Mandelbrot 500
+   ./fractol Julia -0.8 0.156
+   ./fractol BurningShip
 
 ## 🗒️ Notes 🗒️
 - For Julia fractals, the dynamic parameter adjustment works seamlessly with the mouse.
