@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:15:09 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 18:47:26 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 00:53:35 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,34 @@ static void	init_header(t_vars *vars, t_BMPHeader *header)
 	header->planes = 1;
 	header->bit_count = 24;
 	header->compression = 0;
+	header->size_image = WIDTH * abs(HEIGHT) * 3;
 }
 
 static void	write_pixels_into_image(t_vars *vars, int fd)
 {
 	char		*data;
-	t_rgbcolor	color;
-	int			x;
-	int			y;
+	t_point		pt;
+	t_bgrcolor	color;
 	int			pixel;
+	ssize_t		bytes_written;
 
+	bytes_written = 0;
 	data = vars->img.addr;
-	y = 0;
-	while (y++ < HEIGHT)
+	pt.y = 0;
+	while (pt.y++ < HEIGHT)
 	{
-		x = 0;
-		while (x < WIDTH)
+		pt.x = 0;
+		while (pt.x < WIDTH)
 		{
 			pixel = *(int *)(data
-					+ (y * vars->img.line_length
-						+ x * vars->img.bits_per_pixel / 8));
+					+ (pt.y * vars->img.line_length
+						+ (pt.x++) * vars->img.bits_per_pixel / 8));
 			color.b = (pixel & 0xFF);
 			color.g = (pixel >> 8) & 0xFF;
 			color.r = (pixel >> 16) & 0xFF;
-			write(fd, &color.b, 1);
-			write(fd, &color.g, 1);
-			write(fd, &color.r, 1);
+			bytes_written = write(fd, &color, 3);
+			if (bytes_written < 0)
+				return (close(fd), perror("Error while writing BMP data"));
 		}
 	}
 }

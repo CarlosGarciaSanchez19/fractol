@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 19:19:12 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 00:51:05 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@
 # endif
 
 # ifndef WIDTH
-#  define WIDTH 1920
+#  define WIDTH 640
 # endif
 
 # ifndef HEIGHT
-#  define HEIGHT 1080
+#  define HEIGHT 480
 # endif
 
 # ifndef THREADS
@@ -40,7 +40,7 @@
 #  define M_PI 3.14159265358979323846
 # endif
 
-typedef struct s_BMPHeader
+typedef struct __attribute__((packed)) s_BMPHeader
 {
 	uint16_t	file_type;
 	uint32_t	file_size;
@@ -96,6 +96,12 @@ typedef struct s_limits
 	double	*max;
 }	t_limits;
 
+typedef struct s_bgrcolor
+{
+	char	b;
+	char	g;
+	char	r;
+}	t_bgrcolor;
 typedef struct s_rgbcolor
 {
 	double	r;
