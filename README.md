@@ -58,6 +58,9 @@
    ./fractal_explorer mandelbrot 500
    ./fractal_explorer julia -0.8 0.156
    ./fractal_explorer burningship
+
+---
+
 ## Notes:
 - For Julia fractals, the dynamic parameter adjustment works seamlessly with the mouse.
 - Higher precision may significantly increase computation time but allows detailed exploration.
