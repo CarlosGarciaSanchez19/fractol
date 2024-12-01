@@ -1,4 +1,5 @@
-# Fractal Explorer
+# Fractal Explorer (fractol)
+_All images and videos where created with fractol_
 
 ![Julia fractal created with fractol](Julia3.bmp)
 
@@ -23,7 +24,7 @@
 - **Increase/Decrease Precision**:
   - Press `E` to increase precision.  
   - Press `Q` to decrease precision.  
-  _(Higher precision requires more computational power.)_  
+  _(Higher precision requires more computational power)_  
 
 ### Color and Appearance
 - **Adjust Color Frequency**:
