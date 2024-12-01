@@ -43,7 +43,7 @@ _All images and videos where created with fractol_
 - Press `3` to view the Burning Ship fractal.
 
 ### Dynamic Julia Parameter
-- While viewing the Julia fractal, press and hold the mouse's left button to dynamically adjust the Julia parameter to the cursor's position. Release the button to lock the parameter.
+- While viewing the Julia fractal, press and hold the left mouse button to dynamically adjust the Julia parameter to the cursor's position. Release the button to lock the parameter.
 
 ### 🖼️ Save Image 🖼️
 - Press `G` to save the current fractal view as a **BMP image** in the program's folder.
