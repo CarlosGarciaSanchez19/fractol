@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:42:53 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/11/29 16:13:03 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/01 18:33:18 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	adjust_aspect_ratio(t_vars *vars, double asp_ratio)
 {
 	t_cmplx	center;
 	t_cmplx	range;
-
 
 	center.a = (vars->view.x_max + vars->view.x_min) / 2;
 	center.b = (vars->view.y_max + vars->view.y_min) / 2;
@@ -39,45 +38,38 @@ int	mouse_up(int button, int x, int y, t_vars *vars)
 	if (button == 1)
 	{
 		vars->mse_is_down = 0;
-		vars->c.a = from_int_to_real(x, vars->view.x_min, vars->view.x_max, WIDTH);
-		vars->c.b = from_int_to_real(y, vars->view.y_min, vars->view.y_max, HEIGHT);
+		if (vars->view.scale <= 5.0)
+		{
+			vars->c.a = from_int_to_real(x, vars->view.x_min,
+					vars->view.x_max, WIDTH);
+			vars->c.b = from_int_to_real(y, vars->view.y_min,
+					vars->view.y_max, HEIGHT);
+		}
 	}
 	return (0);
 }
 
 int	mouse_down(t_cmplx mouse, t_vars *vars)
 {
-	vars->c = mouse;
+	if (vars->view.scale <= 5.0)
+		vars->c = mouse;
 	vars->mse_is_down = 1;
 	return (0);
 }
 
-void	mse_julia_adjust(t_vars *vars)
-{
-	int	mse_x;
-	int	mse_y;
-
-	mlx_mouse_get_pos(vars->mlx, vars->win, &mse_x, &mse_y);
-	if (vars->mse_is_down)
-	{
-		vars->c.a = from_int_to_real(mse_x, vars->view.x_min, vars->view.x_max, WIDTH);
-		vars->c.b = from_int_to_real(mse_y, vars->view.y_min, vars->view.y_max, HEIGHT);
-	}
-}
-
-void	fractal_pixel_put(t_vars *vars, t_cmplx z, t_point point, int out_iter)
+void	fractal_pxl_put(t_vars *vars, t_cmplx z, t_point point, int out_iter)
 {
 	int		color;
+	int		color_brand_smoother;
 
-	/* (void)z; */
+	color_brand_smoother = (int)(log(log(z.a * z.a + z.b * z.b))
+			/ log(vars->max_iter));
 	if (out_iter == vars->max_iter)
 		my_mlx_pixel_put(&(vars->img), point.x, point.y, 0);
 	else
 	{
-		/* color = (int)((complex_mod(z) - 2.0) * 255.0 / 2.0); */
-		color = out_iter + 1 - (int)(log(log(z.a * z.a + z.b * z.b)) / log((double)vars->max_iter));
-		my_mlx_pixel_put(&(vars->img), point.x, point.y, vars->colormap[color % NUM_COLORS]);
+		color = out_iter + 1 - color_brand_smoother;
+		my_mlx_pixel_put(&(vars->img),
+			point.x, point.y, vars->colormap[color % NUM_COLORS]);
 	}
 }
-/* Curious julia fractal with "pilars" in its vortexes:
-vars->c = (t_cmplx){-0.835, 0.2321}; */

@@ -6,77 +6,94 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/11/30 22:30:24 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/01 19:19:12 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACT_OL_H
-# define FRACT_OL_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 # include "mlx_linux/mlx.h"
 # include "Libft/libft.h"
 # include <unistd.h>
-# include <stdlib.h>
 # include <fcntl.h>
 # include <pthread.h>
 # include <math.h>
 # include <stdio.h>
 
+# ifndef NUM_COLORS
+#  define NUM_COLORS 500
+# endif
 
-#ifndef NUM_COLORS
-# define NUM_COLORS 500
-#endif
+# ifndef WIDTH
+#  define WIDTH 1920
+# endif
 
-#ifndef WIDTH
-# define WIDTH 1280
-#endif
+# ifndef HEIGHT
+#  define HEIGHT 1080
+# endif
 
-#ifndef HEIGHT
-# define HEIGHT 720
-#endif
+# ifndef THREADS
+#  define THREADS sysconf(_SC_NPROCESSORS_ONLN)
+# endif
 
-#ifndef THREADS
-# define THREADS sysconf(_SC_NPROCESSORS_ONLN)
-#endif
+# ifndef M_PI
+#  define M_PI 3.14159265358979323846
+# endif
 
-#define MLX_SYNC_IMAGE_WRITABLE		1
-#define MLX_SYNC_WIN_FLUSH_CMD		2
-#define MLX_SYNC_WIN_CMD_COMPLETED	3
+typedef struct s_BMPHeader
+{
+	uint16_t	file_type;
+	uint32_t	file_size;
+	uint16_t	reserved1;
+	uint16_t	reserved2;
+	uint32_t	offset_data;
+	uint32_t	size;
+	int32_t		width;
+	int32_t		height;
+	uint16_t	planes;
+	uint16_t	bit_count;
+	uint32_t	compression;
+	uint32_t	size_image;
+	int32_t		x_pixels_per_meter;
+	int32_t		y_pixels_per_meter;
+	uint32_t	colors_used;
+	uint32_t	colors_important;
+}	t_BMPHeader;
 
-#ifndef M_PI
-# define M_PI 3.14159265358979323846
-#endif
-
-typedef struct	s_data {
+typedef struct s_data
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}	t_data;
 
-typedef struct	s_view {
+typedef struct s_view
+{
 	double	x_min;
 	double	x_max;
 	double	y_min;
 	double	y_max;
 	double	scale;
-}				t_view;
+}	t_view;
 
-typedef struct	s_cmplx {
+typedef struct s_cmplx
+{
 	double	a;
 	double	b;
-}				t_cmplx;
+}	t_cmplx;
 
-typedef struct	s_point
+typedef struct s_point
 {
-	int x;
-	int y;
-}				t_point;
+	int	x;
+	int	y;
+}	t_point;
 
 typedef struct s_limits
 {
-	double *min;
-	double *max;
+	double	*min;
+	double	*max;
 }	t_limits;
 
 typedef struct s_rgbcolor
@@ -84,9 +101,10 @@ typedef struct s_rgbcolor
 	double	r;
 	double	g;
 	double	b;
-} t_rgbcolor;
+}	t_rgbcolor;
 
-typedef struct	s_vars {
+typedef struct s_vars
+{
 	void	*mlx;
 	void	*win;
 	int		*colormap;
@@ -95,18 +113,20 @@ typedef struct	s_vars {
 	int		max_iter;
 	int		aug_iter;
 	int		mse_is_down;
+	int		ctrl_is_down;
 	int		precision;
 	int		colormap_type;
 	double	color_freq;
 	char	*fractal;
 	t_cmplx	c;
-}				t_vars;
+}	t_vars;
 
-typedef struct s_th_data {
-    t_vars *vars;
-    int start_y;
-    int end_y;
-} t_th_data;
+typedef struct s_th_data
+{
+	t_vars	*vars;
+	int		start_y;
+	int		end_y;
+}	t_th_data;
 
 enum e_colors
 {
@@ -124,13 +144,16 @@ enum e_fractals
 {
 	MANDELBROT,
 	JULIA,
-	BURNING_SHIP,
-	JULIA_COSH
+	BURNING_SHIP
 };
 
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void		fractal_pixel_put(t_vars *vars, t_cmplx z, t_point point, int out_iter);
+void		fractal_pxl_put(t_vars *vars, t_cmplx z, t_point pt, int out_iter);
 void		save_image_as_bmp(t_vars *vars, const char *filename);
+int			parse_input(int argc, char **argv);
+int			parse_input_bonus(int argc, char **argv);
+void		print_options(char *str);
+void		print_options_bonus(char *str);
 void		init_vars(t_vars *vars, char **fractal);
 /* void		put_circle(t_data *img, t_vars *vars, int color); */
 void		adjust_aspect_ratio(t_vars *vars, double asp_ratio);
@@ -138,11 +161,14 @@ int			close_window(t_vars *vars);
 int			red_to_yellow(int i, t_vars *vars);
 int			blue_to_gold(int i, t_vars *vars);
 int			blue_to_gold_to_red(int i, t_vars *vars);
+int			color_to_color(double t, int color1, int color2);
 int			mouse_zoom(int button, int x, int y, t_vars *vars);
 int			mouse_down(t_cmplx mouse, t_vars *vars);
 int			mouse_up(int button, int x, int y, t_vars *vars);
+int			key_release(int keycode, t_vars *vars);
+void		awsd_management(int keycode, t_vars *vars);
 void		mse_julia_adjust(t_vars *vars);
-int			key(int keycode, t_vars *vars);
+int			key_press(int keycode, t_vars *vars);
 int			print_key(int keycode, t_vars *vars);
 int			render_next_frame(t_vars *vars);
 int			trgb(int t, int r, int g, int b);

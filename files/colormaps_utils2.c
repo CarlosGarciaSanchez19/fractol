@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   colormaps_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/24 13:46:30 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 18:40:48 by carlosg2         ###   ########.fr       */
+/*   Created: 2024/12/01 17:43:30 by carlosg2          #+#    #+#             */
+/*   Updated: 2024/12/01 17:44:20 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	mandelbrot(t_vars *vars, t_cmplx c, t_point point)
+void	color_fill(t_vars *vars, int (*map)(int, t_vars *))
 {
-	int		i;
-	t_cmplx	z;
+	int	i;
 
-	z = (t_cmplx){0, 0};
 	i = 0;
-	vars->max_iter = 180
-		+ (int)(log(vars->view.scale + 1.0) * 8.0)
-		+ vars->aug_iter;
-	while (i < vars->max_iter)
+	while (i < NUM_COLORS)
 	{
-		if (z.a * z.a + z.b * z.b > 4.0)
-			break ;
-		z = (t_cmplx){z.a * z.a - z.b * z.b + c.a, 2 * z.a * z.b + c.b};
+		vars->colormap[i] = map(i, vars);
 		i++;
 	}
-	fractal_pxl_put(vars, z, point, i);
 }

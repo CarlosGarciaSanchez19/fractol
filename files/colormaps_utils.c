@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 20:43:22 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/11/26 20:43:30 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/01 17:42:40 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,21 @@ int	get_g(int trgb)
 int	get_b(int trgb)
 {
 	return (trgb & 0xFF);
+}
+
+int	color_to_color(double t, int color1, int color2)
+{
+	t_rgbcolor	rgb1;
+	t_rgbcolor	rgb2;
+
+	rgb1.r = (double)get_r(color1);
+	rgb1.g = (double)get_g(color1);
+	rgb1.b = (double)get_b(color1);
+	rgb2.r = (double)get_r(color2);
+	rgb2.g = (double)get_g(color2);
+	rgb2.b = (double)get_b(color2);
+	rgb1.r = (rgb1.r + (rgb2.r - rgb1.r) * fabs(sin(t)));
+	rgb1.g = (rgb1.g + (rgb2.g - rgb1.g) * fabs(sin(t)));
+	rgb1.b = (rgb1.b + (rgb2.b - rgb1.b) * fabs(sin(t)));
+	return ((int)rgb1.r << 16 | (int)rgb1.g << 8 | (int)rgb1.b);
 }

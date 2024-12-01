@@ -6,15 +6,17 @@
 #    By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 15:51:39 by carlosg2          #+#    #+#              #
-#    Updated: 2024/11/30 21:44:15 by carlosg2         ###   ########.fr        #
+#    Updated: 2024/12/01 19:21:05 by carlosg2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 
-SRCS = mandelbrot.c julia.c burning_ship.c \
-	   fractol_utils.c fractol_utils2.c fractol_utils3.c \
-	   colormaps.c colormaps_utils.c save_image.c fractol.c \
+SRCS = mandelbrot.c julia.c key_press_management.c \
+	fractol_utils.c fractol_utils2.c fractol_utils3.c \
+	colormaps.c colormaps_utils.c colormaps_utils2.c \
+	burning_ship.c save_image.c parse_input_print_opt.c \
+	init_vars_mse_zoom.c fractol.c
 
 OBJS = $(SRCS:.c=.o)
 
