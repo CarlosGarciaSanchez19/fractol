@@ -5,7 +5,7 @@ _All images and videos where created with fractol_
 
 ![Mandelbrot zoom in](MandelbrotZoomIn.gif) ![Mandelbrot zoom out](MandelbrotZoomOut.gif)
 
-![Julia fractal created with fractol](BurningShip.bmp)
+![Burning ship fractal zoomed to 100](BurningShip.bmp)
 
 ## Description
 
