@@ -1,17 +1,17 @@
 # Fractal Explorer (fractol)
 _All images and videos where created with fractol_
-
-![Julia fractal created with fractol](Julia3.bmp)
-
-![Mandelbrot zoom in](MandelbrotZoomIn.gif) ![Mandelbrot zoom out](MandelbrotZoomOut.gif)
-
-![Burning ship fractal zoomed to 100](BurningShip.bmp)
-
-![Julia parameter variation](JuliaParameter.gif)
+<p align="center">
+<img src="Julia3.bmp" alt="Julia fractal created with fractol">
+<img src="MandelbrotZoomIn.gif" alt="Mandelbrot zoom in">
+<img src="MandelbrotZoomOut.gif" alt="Mandelbrot zoom out">
+<img src="BurningShip.bmp" alt="Burning ship fractal zoomed to 100">
+<img src="JuliaParameter.gif" alt="Julia parameter variation">
+<img src="BurningShipZoomOut.gif" alt="Burning ship zoom out">
+<p/>
 
 ## Description
 
-**Fractal Explorer** is an interactive program designed to explore and visualize various fractals, such as the Mandelbrot set, Julia set, and Burning Ship fractal. It provides advanced controls for precision, color customization, and fractal navigation, making it an excellent tool for fractal enthusiasts and computational explorers. There are some image examples in this repository created with this program to show what you can create using it.
+**Fractal Explorer** is an interactive program designed to explore and visualise various fractals, such as the Mandelbrot set, the Julia set and the Burning Ship fractal. It offers advanced controls for precision, color customisation and fractal navigation, making it an excellent tool for fractal enthusiasts and computational explorers. There are some image examples in this repository created with this program to show what you can create with it, apart from the images above.
 
 ## :zap: Features :zap:
 
