@@ -53,7 +53,7 @@ _All images and videos where created with fractol_
    - Performance improves with a processor having multiple cores (as this program uses threads 🧵).  
 
 2. **Run the Program**:
-   - Execute `make` in the ''/files'' folder to compile the program.
+   - Execute `make` in the `/files` folder of the repository to compile the program.
    - Use the terminal to execute the program with the following arguments:  
      - **First Argument**: The fractal type (`Mandelbrot`, `Julia`, or `BurningShip`).
      - _Note: The program is camel case sensitive._
