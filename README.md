@@ -1,6 +1,6 @@
 # Fractal Explorer
 
-![Julia fractal](Julia3.bmp)
+![Julia fractal created with fractol](Julia3.bmp)
 
 ## Description
 
