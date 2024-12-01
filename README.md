@@ -2,7 +2,7 @@
 
 ![Julia fractal created with fractol](Julia3.bmp)
 
-![Mandelbrot zoom in](MandelbrotZoomIn.gif) ![Mandelbrot zoom out](MandelbrotZoomIn.gif)
+![Mandelbrot zoom in](MandelbrotZoomIn.gif) ![Mandelbrot zoom out](MandelbrotZoomOut.gif)
 
 ## Description
 
