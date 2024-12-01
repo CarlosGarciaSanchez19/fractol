@@ -1,5 +1,5 @@
 # Fractal Explorer (fractol)
-_All images and videos where created with fractol_
+_All images and videos were created with fractol_
 <p align="center">
 <img src="Julia3.bmp" alt="Julia fractal created with fractol">
 <img src="MandelbrotZoomIn.gif" alt="Mandelbrot zoom in">
