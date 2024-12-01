@@ -17,10 +17,12 @@ _All images and videos where created with fractol_
 
 ### Navigation ↔️ ↕️ and Zoom 🔍
 - **Zoom In/Zoom Out**:
-- Zoom almost infinitely to explore fractals in detail.  
+  - Zoom almost infinitely with the mouse wheel to explore fractals in detail.  
 - **Movement**:
   - Use `W`, `A`, `S`, and `D` keys to move the view.  
-  - Hold `CTRL` and move the cursor to shift the view dynamically.  
+  - Hold `CTRL` and move the cursor to shift the view dynamically.
+- **Return home**:
+  - Press `H` to return to the initial position.
 
 ### 💻 Precision and Computation 💻
 - **Increase/Decrease Precision**:
