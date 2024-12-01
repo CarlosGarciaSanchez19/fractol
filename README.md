@@ -2,7 +2,7 @@
 
 ![Julia fractal created with fractol](Julia3.bmp)
 
-![Mandelbrot zoom in](MandelbrotZoomIn.avi)
+![Mandelbrot zoom in](MandelbrotZoomIn.mp4)
 
 ## Description
 
