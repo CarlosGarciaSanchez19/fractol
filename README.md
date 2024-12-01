@@ -7,6 +7,8 @@ _All images and videos where created with fractol_
 
 ![Burning ship fractal zoomed to 100](BurningShip.bmp)
 
+![Julia parameter variation](JuliaParameter.gif)
+
 ## Description
 
 **Fractal Explorer** is an interactive program designed to explore and visualize various fractals, such as the Mandelbrot set, Julia set, and Burning Ship fractal. It provides advanced controls for precision, color customization, and fractal navigation, making it an excellent tool for fractal enthusiasts and computational explorers. There are some image examples in this repository created with this program to show what you can create using it.
