@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:51:12 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 21:06:58 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 20:20:33 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,13 @@ int	render_next_frame(t_vars *vars)
 int	main(int argc, char **argv)
 {
 	t_vars	vars;
+	int		colormap[NUM_COLORS];
 
 	if (argc >= 2 && argc <= 4)
 	{
 		if (!parse_input_bonus(argc, argv))
 			return (0);
-		vars.colormap = malloc(sizeof(int) * NUM_COLORS);
+		vars.colormap = colormap;
 		init_vars(&vars, argv);
 		mlx_hook(vars.win, 17, 1L << 17, close_window, &vars);
 		mlx_hook(vars.win, 2, 1L << 0, key_press, &vars);
@@ -113,6 +114,6 @@ int	main(int argc, char **argv)
 		print_options_bonus(" ");
 		return (0);
 	}
-	return (free(vars.colormap), 0);
+	return (0);
 }
 

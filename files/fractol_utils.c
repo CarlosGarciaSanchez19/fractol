@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:25:03 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 13:23:40 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 20:22:08 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	close_window(t_vars *vars)
 	mlx_destroy_image(vars->mlx, vars->img.img);
 	mlx_destroy_window(vars->mlx, vars->win);
 	mlx_destroy_display(vars->mlx);
-	free(vars->colormap);
 	free(vars->mlx);
 	exit(0);
 	return (0);
