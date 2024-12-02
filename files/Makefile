@@ -6,7 +6,7 @@
 #    By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 15:51:39 by carlosg2          #+#    #+#              #
-#    Updated: 2024/12/02 01:04:32 by carlosg2         ###   ########.fr        #
+#    Updated: 2024/12/02 16:13:29 by carlosg2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g -O3
+CFLAGS = -Wall -Wextra -Werror -O3
 
 LIBRARIES = -LLibft -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 

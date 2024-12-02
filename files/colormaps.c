@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 19:27:13 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 17:43:06 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:40:24 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ int	white_to_color(int i, t_vars *vars)
 	colors[1] = 0xAA0000;
 	colors[2] = 0x00AA00;
 	colors[3] = 0x0000AA;
-	r = (double)get_r(colors[vars->colormap_type - 4]);
-	g = (double)get_g(colors[vars->colormap_type - 4]);
-	b = (double)get_b(colors[vars->colormap_type - 4]);
+	r = (double)get_r(colors[vars->palette - 4]);
+	g = (double)get_g(colors[vars->palette - 4]);
+	b = (double)get_b(colors[vars->palette - 4]);
 	r = (r + (255.0 - r) * fabs(sin(vars->color_freq * 0.1 * i)));
 	g = (g + (255.0 - g) * fabs(sin(vars->color_freq * 0.1 * i)));
 	b = (b + (255.0 - b) * fabs(sin(vars->color_freq * 0.1 * i)));

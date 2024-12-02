@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_utils4.c                                   :+:      :+:    :+:   */
+/*   fractol_utils3.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:28:05 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 18:29:15 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:59:58 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	mse_julia_adjust(t_vars *vars)
 			vars->view.x_max, WIDTH);
 	mouse.b = from_int_to_real(mse_y, vars->view.y_min,
 			vars->view.y_max, HEIGHT);
-	if (vars->mse_is_down && vars->view.scale <= 5.0)
+	if (vars->mse_is_down
+		&& !(vars->view.scale > 5.0 && !ft_strcmp(vars->fractal, "Julia")))
 		vars->c = mouse;
 	if (vars->ctrl_is_down)
 		move_image(vars, mse_x, mse_y);

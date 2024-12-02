@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_utils3.c                                   :+:      :+:    :+:   */
+/*   init_vars_mse_zoom.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:35:23 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 18:28:27 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:40:24 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	init_vars(t_vars *vars, char **argv)
 		vars->c = (t_cmplx){ft_atod(argv[2]), ft_atod(argv[3])};
 	else
 		vars->c = (t_cmplx){-0.835, 0.2321};
-	vars->colormap_type = 0;
+	vars->palette = 0;
 	vars->color_freq = 1.0;
 	vars->fractal = argv[1];
 	color_fill(vars, rainbow_color);

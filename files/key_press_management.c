@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:23:24 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 18:50:44 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:15:24 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	precision_management(int keycode, t_vars *vars)
 	}
 }
 
-static void	home_and_color_freq_manag(int keycode, t_vars *vars)
+static void	home(int keycode, t_vars *vars)
 {
 	if (keycode == 104)
 	{
@@ -72,6 +72,16 @@ static void	home_and_color_freq_manag(int keycode, t_vars *vars)
 		vars->view.scale = 1.0;
 		adjust_aspect_ratio(vars, (double)WIDTH / (double)HEIGHT);
 	}
+}
+
+static void	palette_and_color_freq_manag(int keycode, t_vars *vars)
+{
+	if (keycode == 99)
+	{
+		vars->palette++;
+		if (vars->palette > 7)
+			vars->palette = 0;
+	}
 	else if (keycode == 45)
 		vars->color_freq /= 1.5;
 	else if (keycode == 43)
@@ -80,31 +90,16 @@ static void	home_and_color_freq_manag(int keycode, t_vars *vars)
 		if (vars->color_freq > 10.0)
 			vars->color_freq = 10.0;
 	}
-}
-
-static void	colormap_type_manag(int keycode, t_vars *vars)
-{
-	if (keycode == 99)
-	{
-		vars->colormap_type++;
-		if (vars->colormap_type > 7)
-			vars->colormap_type = 0;
-	}
-	if (vars->colormap_type == RAINBOW)
+	if (vars->palette == RAINBOW)
 		color_fill(vars, rainbow_color);
-	else if (vars->colormap_type == WHITE_TO_SIENA)
+	else if (vars->palette == WHITE_TO_SIENA || vars->palette == WHITE_TO_RED
+		|| vars->palette == WHITE_TO_GREEN || vars->palette == WHITE_TO_BLUE)
 		color_fill(vars, white_to_color);
-	else if (vars->colormap_type == WHITE_TO_RED)
-		color_fill(vars, white_to_color);
-	else if (vars->colormap_type == WHITE_TO_BLUE)
-		color_fill(vars, white_to_color);
-	else if (vars->colormap_type == WHITE_TO_GREEN)
-		color_fill(vars, white_to_color);
-	else if (vars->colormap_type == RED_TO_YELLOW)
+	else if (vars->palette == RED_TO_YELLOW)
 		color_fill(vars, red_to_yellow);
-	else if (vars->colormap_type == BLUE_TO_GOLD)
+	else if (vars->palette == BLUE_TO_GOLD)
 		color_fill(vars, blue_to_gold);
-	else if (vars->colormap_type == BLUE_TO_GOLD_TO_RED)
+	else if (vars->palette == BLUE_TO_GOLD_TO_RED)
 		color_fill(vars, blue_to_gold_to_red);
 }
 
@@ -114,7 +109,7 @@ int	key_press(int keycode, t_vars *vars)
 		vars->ctrl_is_down = 1;
 	awsd_management(keycode, vars);
 	precision_management(keycode, vars);
-	home_and_color_freq_manag(keycode, vars);
+	home(keycode, vars);
 	if (keycode == 103)
 		save_image_as_bmp(vars, "fractol.bmp");
 	else if (keycode - 49 == MANDELBROT)
@@ -125,6 +120,6 @@ int	key_press(int keycode, t_vars *vars)
 		vars->fractal = "BurningShip";
 	else if (keycode == 65307)
 		close_window(vars);
-	colormap_type_manag(keycode, vars);
+	palette_and_color_freq_manag(keycode, vars);
 	return (0);
 }

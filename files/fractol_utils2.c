@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:42:53 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/01 18:33:18 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:02:16 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	mouse_up(int button, int x, int y, t_vars *vars)
 	if (button == 1)
 	{
 		vars->mse_is_down = 0;
-		if (vars->view.scale <= 5.0)
+		if (!(vars->view.scale > 5.0 && !ft_strcmp(vars->fractal, "Julia")))
 		{
 			vars->c.a = from_int_to_real(x, vars->view.x_min,
 					vars->view.x_max, WIDTH);
@@ -51,7 +51,7 @@ int	mouse_up(int button, int x, int y, t_vars *vars)
 
 int	mouse_down(t_cmplx mouse, t_vars *vars)
 {
-	if (vars->view.scale <= 5.0)
+	if (!(vars->view.scale > 5.0 && !ft_strcmp(vars->fractal, "Julia")))
 		vars->c = mouse;
 	vars->mse_is_down = 1;
 	return (0);

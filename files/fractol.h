@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 01:04:50 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:42:34 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdio.h>
 
 # ifndef NUM_COLORS
-#  define NUM_COLORS 500
+#  define NUM_COLORS 200
 # endif
 
 # ifndef WIDTH
@@ -33,7 +33,7 @@
 # endif
 
 # ifndef THREADS
-#  define THREADS sysconf(_SC_NPROCESSORS_ONLN)
+#  define THREADS 8
 # endif
 
 # ifndef M_PI
@@ -102,6 +102,7 @@ typedef struct s_bgrcolor
 	char	g;
 	char	r;
 }	t_bgrcolor;
+
 typedef struct s_rgbcolor
 {
 	double	r;
@@ -121,7 +122,7 @@ typedef struct s_vars
 	int		mse_is_down;
 	int		ctrl_is_down;
 	int		precision;
-	int		colormap_type;
+	int		palette;
 	double	color_freq;
 	char	*fractal;
 	t_cmplx	c;
