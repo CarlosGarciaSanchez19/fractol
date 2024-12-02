@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 15:42:34 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:19:29 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdio.h>
 
 # ifndef NUM_COLORS
-#  define NUM_COLORS 200
+#  define NUM_COLORS 500
 # endif
 
 # ifndef WIDTH
