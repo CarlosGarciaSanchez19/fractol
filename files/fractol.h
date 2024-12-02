@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 16:26:26 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:29:02 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # endif
 
 # ifndef THREADS
-#  define THREADS 8
+#  define THREADS sysconf(_SC_NPROCESSORS_ONLN)
 # endif
 
 # ifndef M_PI
