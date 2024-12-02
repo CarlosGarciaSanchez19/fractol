@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:35:23 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 15:40:24 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:22:55 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	init_vars(t_vars *vars, char **argv)
 {
 	init_display(vars, argv);
 	init_view(vars);
-	vars->max_iter = 180 + (int)(log(vars->view.scale + 1.0) * 8.0);
+	vars->max_iter = 0;
 	vars->aug_iter = 0;
 	vars->mse_is_down = 0;
 	vars->ctrl_is_down = 0;
@@ -51,7 +51,10 @@ void	init_vars(t_vars *vars, char **argv)
 	else
 		vars->precision = 10;
 	if (argv[2] && !argv[3])
+	{
 		vars->precision = ft_atoi(argv[2]);
+		vars->c = (t_cmplx){-0.835, 0.2321};
+	}
 	else if (argv[2] && argv[3])
 		vars->c = (t_cmplx){ft_atod(argv[2]), ft_atod(argv[3])};
 	else
