@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:35:23 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 16:22:55 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/04 14:38:39 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ void	init_vars(t_vars *vars, char **argv)
 	vars->aug_iter = 0;
 	vars->mse_is_down = 0;
 	vars->ctrl_is_down = 0;
-	if (!ft_strcmp(argv[1], "BurningShip"))
-		vars->precision = 0;
-	else
-		vars->precision = 10;
+	vars->precision = 0;
 	if (argv[2] && !argv[3])
 	{
 		vars->precision = ft_atoi(argv[2]);
