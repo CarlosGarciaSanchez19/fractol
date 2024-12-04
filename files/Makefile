@@ -6,7 +6,7 @@
 #    By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 15:51:39 by carlosg2          #+#    #+#              #
-#    Updated: 2024/12/02 20:23:58 by carlosg2         ###   ########.fr        #
+#    Updated: 2024/12/04 13:12:24 by carlosg2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS = mandelbrot.c julia.c key_press_management.c \
 
 OBJS = $(SRCS:.c=.o)
 
-CC = cc
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -O3
 
