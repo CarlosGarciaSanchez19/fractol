@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:57:08 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/04 13:32:29 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/04 14:37:12 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	julia(t_vars *vars, t_cmplx z, t_point point)
 	t_cmplx	c;
 
 	c = vars->c;
-	vars->max_iter = 100
+	vars->max_iter = 75
 		+ (int)(log(vars->view.scale + 1.0) * 8.0)
 		+ vars->aug_iter;
 	i = 0;
