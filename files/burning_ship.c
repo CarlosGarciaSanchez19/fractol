@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:23:04 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/04 13:36:07 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/04 14:39:56 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	burning_ship(t_vars *vars, t_cmplx c, t_point point)
 
 	z = (t_cmplx){0, 0};
 	i = 0;
-	vars->max_iter = (int)(log(vars->view.scale + 1.0) * 8.0)
+	vars->max_iter = 40 + (int)(log(vars->view.scale + 1.0) * 8.0)
 		+ vars->aug_iter;
 	while (i < vars->max_iter)
 	{
