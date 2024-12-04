@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:51:12 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 20:20:33 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:58:59 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	put_image_and_increase_iter(t_vars *vars)
 	if (vars->aug_iter >= vars->precision * (int)log(vars->view.scale + 1.0))
 		vars->aug_iter = vars->precision * (int)log(vars->view.scale + 1.0);
 	else
-		vars->aug_iter += vars->precision / 40
+		vars->aug_iter += vars->precision / 20
 			* (int)log(vars->view.scale + 1.0);
 }
 
