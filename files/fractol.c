@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:51:12 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/04 15:58:59 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:53:10 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,9 @@ int	main(int argc, char **argv)
 		mlx_loop_hook(vars.mlx, render_next_frame, &vars);
 		mlx_loop(vars.mlx);
 	}
-	else if (argc == 1)
+	else if (argc == 1 || argc > 4)
 	{
-		print_options_bonus(" ");
+		print_options(" ");
 		return (0);
 	}
 	return (0);
