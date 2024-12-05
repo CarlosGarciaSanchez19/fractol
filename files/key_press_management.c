@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:23:24 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 16:15:24 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 10:54:21 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ static void	precision_management(int keycode, t_vars *vars)
 	{
 		vars->precision += 10;
 		ft_printf("Precision increased to: %d\n", vars->precision);
-		ft_printf("Iterations increased in: %d\n", vars->aug_iter);
+		ft_printf("Maximum iterations are now: %d\n", vars->precision
+			* (int)log(vars->view.scale + 1));
 	}
 	else if (keycode == 113)
 	{
@@ -53,11 +54,16 @@ static void	precision_management(int keycode, t_vars *vars)
 		{
 			vars->precision -= 10;
 			ft_printf("Precision decreased to: %d\n", vars->precision);
-			ft_printf("Iterations decreased in: %d\n", vars->aug_iter);
+			ft_printf("Maximum iterations are now: %d\n", vars->precision
+				* (int)log(vars->view.scale + 1));
 		}
 		else
+		{
 			ft_printf("Precision not decreased, it stays at: %d\n",
 				vars->precision);
+			ft_printf("Maximum iterations stay at: %d\n", vars->precision
+				* (int)log(vars->view.scale + 1));
+		}
 	}
 }
 
