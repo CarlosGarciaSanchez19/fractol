@@ -6,11 +6,24 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 18:28:05 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 15:59:58 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:09:29 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	print_maximum_iter_null_precision(t_vars *vars)
+{
+	vars->precision = 0;
+	ft_printf("Precision not decreased, it stays at: %d\n",
+		vars->precision);
+	if (!ft_strcmp(vars->fractal, "BurningShip"))
+		ft_printf("Maximum iterations stay at: %d\n", 40
+			+ (int)(log(vars->view.scale + 1.0) * 8.0));
+	else
+		ft_printf("Maximum iterations stay at: %d\n", 65
+			+ (int)(log(vars->view.scale + 1.0) * 8.0));
+}
 
 int	key_release(int keycode, t_vars *vars)
 {

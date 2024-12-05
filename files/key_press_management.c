@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:23:24 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/05 11:12:33 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:10:40 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,30 +41,28 @@ void	awsd_management(int keycode, t_vars *vars)
 
 static void	precision_management(int keycode, t_vars *vars)
 {
+	int	max_iter;
+
+	if (!ft_strcmp(vars->fractal, "BurningShip"))
+		max_iter = 40 + (int)(log(vars->view.scale + 1.0) * 8.0);
+	else
+		max_iter = 65 + (int)(log(vars->view.scale + 1.0) * 8.0);
 	if (keycode == 101)
 	{
 		vars->precision += 10;
+		max_iter += vars->precision * (int)log(vars->view.scale + 1);
 		ft_printf("Precision increased to: %d\n", vars->precision);
-		ft_printf("Maximum iterations are now: %d\n", vars->precision
-			* (int)log(vars->view.scale + 1));
+		ft_printf("Maximum iterations are now: %d\n", max_iter);
 	}
 	else if (keycode == 113 && vars->precision >= 10)
 	{
 		vars->precision -= 10;
+		max_iter += vars->precision * (int)log(vars->view.scale + 1);
 		ft_printf("Precision decreased to: %d\n", vars->precision);
-		ft_printf("Maximum iterations are now: %d\n", vars->precision
-			* (int)log(vars->view.scale + 1));
+		ft_printf("Maximum iterations are now: %d\n", max_iter);
 	}
 	else if (keycode == 113)
-	{
-		vars->precision = 0;
-		ft_printf("Precision not decreased, it stays at: %d\n",
-			vars->precision);
-		if (!ft_strcmp(vars->fractal, "BurningShip"))
-			ft_printf("Maximum iterations stay at: %d\n", 40);
-		else
-			ft_printf("Maximum iterations stay at: %d\n", 65);
-	}
+		print_maximum_iter_null_precision(vars);
 }
 
 static void	home(int keycode, t_vars *vars)

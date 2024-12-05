@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/05 11:17:05 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 12:04:13 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,7 @@ enum e_fractals
 	BURNING_SHIP
 };
 
+void		print_maximum_iter_null_precision(t_vars *vars);
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void		fractal_pxl_put(t_vars *vars, t_cmplx z, t_point pt, t_point iter);
 void		save_image_as_bmp(t_vars *vars, const char *filename);
