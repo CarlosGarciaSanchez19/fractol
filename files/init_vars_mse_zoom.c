@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:35:23 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/04 14:38:39 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:03:44 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	init_vars(t_vars *vars, char **argv)
 {
 	init_display(vars, argv);
 	init_view(vars);
-	vars->max_iter = 0;
 	vars->aug_iter = 0;
 	vars->mse_is_down = 0;
 	vars->ctrl_is_down = 0;

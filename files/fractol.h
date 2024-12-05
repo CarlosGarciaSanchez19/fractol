@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 13:58:07 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 16:29:02 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:17:05 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ typedef struct s_vars
 	int		*colormap;
 	t_data	img;
 	t_view	view;
-	int		max_iter;
 	int		aug_iter;
 	int		mse_is_down;
 	int		ctrl_is_down;
@@ -155,7 +154,7 @@ enum e_fractals
 };
 
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void		fractal_pxl_put(t_vars *vars, t_cmplx z, t_point pt, int out_iter);
+void		fractal_pxl_put(t_vars *vars, t_cmplx z, t_point pt, t_point iter);
 void		save_image_as_bmp(t_vars *vars, const char *filename);
 int			parse_input(int argc, char **argv);
 int			parse_input_bonus(int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:23:24 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/05 10:54:21 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:12:33 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,22 @@ static void	precision_management(int keycode, t_vars *vars)
 		ft_printf("Maximum iterations are now: %d\n", vars->precision
 			* (int)log(vars->view.scale + 1));
 	}
+	else if (keycode == 113 && vars->precision >= 10)
+	{
+		vars->precision -= 10;
+		ft_printf("Precision decreased to: %d\n", vars->precision);
+		ft_printf("Maximum iterations are now: %d\n", vars->precision
+			* (int)log(vars->view.scale + 1));
+	}
 	else if (keycode == 113)
 	{
-		if (vars->precision >= 10)
-		{
-			vars->precision -= 10;
-			ft_printf("Precision decreased to: %d\n", vars->precision);
-			ft_printf("Maximum iterations are now: %d\n", vars->precision
-				* (int)log(vars->view.scale + 1));
-		}
+		vars->precision = 0;
+		ft_printf("Precision not decreased, it stays at: %d\n",
+			vars->precision);
+		if (!ft_strcmp(vars->fractal, "BurningShip"))
+			ft_printf("Maximum iterations stay at: %d\n", 40);
 		else
-		{
-			ft_printf("Precision not decreased, it stays at: %d\n",
-				vars->precision);
-			ft_printf("Maximum iterations stay at: %d\n", vars->precision
-				* (int)log(vars->view.scale + 1));
-		}
+			ft_printf("Maximum iterations stay at: %d\n", 65);
 	}
 }
 

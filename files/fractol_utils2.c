@@ -6,7 +6,7 @@
 /*   By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 12:42:53 by carlosg2          #+#    #+#             */
-/*   Updated: 2024/12/02 16:02:16 by carlosg2         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:03:17 by carlosg2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,18 @@ int	mouse_down(t_cmplx mouse, t_vars *vars)
 	return (0);
 }
 
-void	fractal_pxl_put(t_vars *vars, t_cmplx z, t_point point, int out_iter)
+void	fractal_pxl_put(t_vars *vars, t_cmplx z, t_point point, t_point iter)
 {
 	int		color;
 	int		color_brand_smoother;
 
 	color_brand_smoother = (int)(log(log(z.a * z.a + z.b * z.b))
-			/ log(vars->max_iter));
-	if (out_iter == vars->max_iter)
+			/ log(iter.y));
+	if (iter.x == iter.y)
 		my_mlx_pixel_put(&(vars->img), point.x, point.y, 0);
 	else
 	{
-		color = out_iter + 1 - color_brand_smoother;
+		color = iter.x + 1 - color_brand_smoother;
 		my_mlx_pixel_put(&(vars->img),
 			point.x, point.y, vars->colormap[color % NUM_COLORS]);
 	}
