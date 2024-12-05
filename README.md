@@ -43,7 +43,7 @@ _All images and videos were created with fractol_
 - Press `3` to view the Burning Ship fractal.
 
 ### Dynamic Julia Parameter
-- While viewing the Julia fractal, press and hold the left mouse button to dynamically adjust the Julia parameter to the cursor's position. Release the button to lock the parameter. You can also click at a point in the Mandelbrot set and then change to Julia to see the relation between Mandelbrot points and Julia fractals.
+- While viewing the Julia fractal, press and hold the left mouse button to dynamically adjust the Julia parameter to the cursor's position. Release the button to lock the parameter. You can also click at a point in the Mandelbrot set and then change to Julia (pressing `2`) to see the relation between Mandelbrot points and Julia fractals.
 
 ### 🖼️ Save Image 🖼️
 - Press `G` to save the current fractal view as a **BMP image** in the program's folder.
