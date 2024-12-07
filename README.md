@@ -71,6 +71,5 @@ _All images and videos were created with fractol_
    ./fractol BurningShip
 
 ## 🗒️ Notes 🗒️
-- For Julia fractals, the dynamic parameter adjustment works seamlessly with the mouse.
 - Higher precision may significantly increase computation time but allows detailed exploration. Notice that to explore the Burning ship fractal a precision equal to 0 (by default) is more than sufficient, however you can play with precision as you like.
 - Experiment with color frequency and colormaps to enhance visualization.
