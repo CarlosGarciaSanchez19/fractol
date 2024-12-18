@@ -6,9 +6,17 @@
 #    By: carlosg2 <carlosg2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/21 15:51:39 by carlosg2          #+#    #+#              #
-#    Updated: 2024/12/04 14:30:48 by carlosg2         ###   ########.fr        #
+#    Updated: 2024/12/18 01:53:47 by carlosg2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+
+# Copyright © 2024 Carlos García Sánchez. All rights reserved.
+# Unauthorized copying, distribution, modification, or use of this software, 
+# in whole or in part, is strictly prohibited without explicit permission from the copyright owner.
+# This software is provided "as is" without any warranty, express or implied. 
+# Use is at your own risk.
+
 
 NAME = fractol
 
